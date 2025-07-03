@@ -41,7 +41,8 @@ def create_app():
             "origins": [
                 "http://localhost:3000", 
                 "https://grad2-protein-multi-agent-system.vercel.app", 
-                "https://protein-pipeline.vercel.app"
+                "https://protein-pipeline.vercel.app",
+                "https://protomatic.vercel.app"
             ],
             "methods": ["GET", "POST", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"],
