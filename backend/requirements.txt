@@ -32,7 +32,7 @@ kiwisolver==1.4.7
 lxml==5.4.0
 MarkupSafe==3.0.2
 matplotlib==3.9.4
-meeko==0.6.1
+meeko==0.5.0
 numpy==1.26.4
 packaging==25.0
 pandas==2.2.3
