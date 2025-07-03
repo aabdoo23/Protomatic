@@ -52,11 +52,6 @@ class PrankTool:
         if not os.path.exists(self.p2rank_path):
             self.logger.error(f"P2Rank executable not found at {self.p2rank_path}")
             return False
-        
-        # Check if file is executable (important for Linux)
-        if not os.access(self.p2rank_path, os.X_OK):
-            self.logger.error(f"P2Rank is not executable at {self.p2rank_path}")
-            return False
             
         self.logger.info("P2Rank executable found and is executable.")
         return True

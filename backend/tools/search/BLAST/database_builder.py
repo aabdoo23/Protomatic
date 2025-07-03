@@ -14,12 +14,12 @@ logger = logging.getLogger(__name__)
 def get_blast_paths():
     """Get the correct BLAST executable paths based on the current OS."""
     if platform.system() == "Windows":
-        blastp_path = os.path.join("Tools", "Search", "BLAST", "blastp", "blastp.exe")
-        makeblastdb_path = os.path.join("Tools", "Search", "BLAST", "blastp", "makeblastdb.exe")
+        blastp_path = os.path.join("tools", "search", "BLAST", "blastp", "blastp.exe")
+        makeblastdb_path = os.path.join("tools", "search", "BLAST", "blastp", "makeblastdb.exe")
     else:
         # Linux/Mac paths
-        blastp_path = os.path.join("Tools", "Search", "BLAST", "blastp-linux", "blastp")
-        makeblastdb_path = os.path.join("Tools", "Search", "BLAST", "blastp-linux", "makeblastdb")
+        blastp_path = os.path.join("tools", "search", "BLAST", "blastp-linux", "blastp")
+        makeblastdb_path = os.path.join("tools", "search", "BLAST", "blastp-linux", "makeblastdb")
     
     return blastp_path, makeblastdb_path
 

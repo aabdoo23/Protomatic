@@ -19,14 +19,14 @@ class DockingTool:
     def _set_platform_paths(self):
         """Set platform-specific paths for docking tools."""
         if platform.system() == "Windows":
-            self.mgltools_python_path = os.path.join("Tools","Docking","Util","MGLTools-1.5.7","python.exe")
-            self.prepare_receptor_script_path = os.path.join("Tools","Docking","Util","MGLTools-1.5.7","Lib","site-packages","AutoDockTools","Utilities24","prepare_receptor4.py")
-            self.vina_executable = os.path.join("Tools","Docking","Util","vina.exe")
+            self.mgltools_python_path = os.path.join("tools","docking","util","windows","MGLTools-1.5.7","python.exe")
+            self.prepare_receptor_script_path = os.path.join("tools","docking","util","windows","MGLTools-1.5.7","Lib","site-packages","AutoDockTools","Utilities24","prepare_receptor4.py")
+            self.vina_executable = os.path.join("tools","docking","util","windows","vina.exe")
         else:
             # Linux/Mac paths
-            self.mgltools_python_path = os.path.join("Tools","Docking","Util","Linux","mgltools_x86_64Linux2_1.5.7","Python2.7_x86_64Linux2","bin","MGLpython2.7")
-            self.prepare_receptor_script_path = os.path.join("Tools","Docking","Util","Linux","mgltools_x86_64Linux2_1.5.7","MGLToolsPckgs","MGLToolsPckgs","AutoDockTools","Utilities24","prepare_receptor4.py")
-            self.vina_executable = os.path.join("Tools","Docking","Util","Linux","vina_1.2.7_linux_x86_64")
+            self.mgltools_python_path = os.path.join("tools","docking","util","linux","mgltools_x86_64Linux2_1.5.7","Python2.7_x86_64Linux2","bin","MGLpython2.7")
+            self.prepare_receptor_script_path = os.path.join("tools","docking","util","linux","mgltools_x86_64Linux2_1.5.7","MGLToolsPckgs","MGLToolsPckgs","AutoDockTools","Utilities24","prepare_receptor4.py")
+            self.vina_executable = os.path.join("tools","docking","util","linux","vina_1.2.7_linux_x86_64")
 
     def _check_executable_permissions(self, executable_path):
         """Check if an executable exists and has proper permissions."""
@@ -479,7 +479,7 @@ class DockingTool:
         
         if platform.system() != "Windows":
             # Add MGLTools library paths to LD_LIBRARY_PATH
-            mgltools_base = os.path.join("Tools", "Docking", "Util", "Linux", "mgltools_x86_64Linux2_1.5.7")
+            mgltools_base = os.path.join("tools", "docking", "util", "linux", "mgltools_x86_64Linux2_1.5.7")
             lib_paths = [
                 os.path.join(mgltools_base, "Python2.7_x86_64Linux2", "lib"),
                 os.path.join(mgltools_base, "lib")
