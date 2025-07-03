@@ -1,7 +1,6 @@
 import asyncio
 import json
 from typing import Dict, Any, Optional
-from fastapi import HTTPException
 import httpx
 import os
 import logging
@@ -65,13 +64,11 @@ class ColabFold_MSA_Searcher:
                     if status_response.status_code == 200:
                         return status_response.status_code, status_response
                     elif status_response.status_code in [400, 401, 404, 422, 500]:
-                        raise HTTPException(status_response.status_code,
-                                            "Error while waiting for function:\n",
-                                            response.text)
+                        raise Exception(f"Error while waiting for function (HTTP {status_response.status_code}): {status_response.text}")
             elif response.status_code == 200:
                 return response.status_code, response
             else:
-                raise HTTPException(status_code=response.status_code, detail=response.text)
+                raise Exception(f"HTTP error {response.status_code}: {response.text}")
 
     def search(self, sequence: str, parameters: Dict[str, Any] = None) -> Dict[str, Any]:
         if not sequence:
